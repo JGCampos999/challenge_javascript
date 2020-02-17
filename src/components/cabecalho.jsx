@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { bindActionCreators } from 'redux';
 import { getAllData } from '../redux/actions'
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import logo from '../imgs/logo.png';
 
@@ -21,7 +20,7 @@ const Cabecalho = (props) => {
 
     const style = {
         table: {
-            align: "center",
+            align: "left",
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "40px",
@@ -32,26 +31,29 @@ const Cabecalho = (props) => {
             width: "200px",
             marginLeft: "auto",
             marginRight: "auto",
+        },
+        typo: {
+            textAlign: "right",
+            color: "#263238"
         }
+
     }
     return (
-        <div style={{justifyContent: "center"}}>
-            <img src={logo} alt="logo" style={style.img} className="center" />
+        <div>
+            <img src={logo} alt="logo" style={style.img} />
             <div>
-                <Breadcrumbs style={style.table}>
-                    <Typography color="textPrimary">
-                        <span align="center"><strong>Valor Pago R$ {data.amountPayd},00</strong></span>
-                    </Typography>
-                    <Typography color="textPrimary">
-                        <span align="center"><strong>Juros Mensais {data.monthlyInterest}%</strong></span>
-                    </Typography>
-                    <Typography color="textPrimary">
-                        <span align="center"><strong>Total a Pagar: R$ {data.amountTaken + data.totalAmountInTaxes},00</strong></span>
-                    </Typography>
-                    <Typography color="textPrimary">
-                        <span align="center"><strong>Total de Juros {` R$ ${data.totalAmountInTaxes},00`}</strong></span>
-                    </Typography>
-                </Breadcrumbs>
+                <Typography style={style.typo}>
+                    <span align="center"><strong>Valor Pago: R$ {data.amountPayd},00</strong></span>
+                </Typography>
+                <Typography style={style.typo}>
+                    <span align="center"><strong>Juros Mensais: {data.monthlyInterest}%</strong></span>
+                </Typography>
+                <Typography style={style.typo}>
+                    <span align="center"><strong>Total a Pagar: R$ {data.amountTaken + data.totalAmountInTaxes},00</strong></span>
+                </Typography>
+                <Typography style={style.typo}>
+                    <span align="center"><strong>Total de Juros: R$ {data.totalAmountInTaxes},00</strong></span>
+                </Typography>
             </div>
         </div>
     )

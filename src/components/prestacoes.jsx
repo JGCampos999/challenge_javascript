@@ -52,7 +52,7 @@ const Prestacoes = (props) => {
 
     const classes = useStyles();
     return (
-        <div style={{width: "80%", float: "right"}}>
+        <div style={{ width: "72%", float: "right" }}>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
